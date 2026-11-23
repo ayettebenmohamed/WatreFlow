@@ -8,6 +8,8 @@
 #include <QSettings>
 #include <QCryptographicHash>
 #include <QFrame>
+#include "session.h"
+#include "animationlivraison.h"
 
 // Boîte de connexion commune à toute l'application (reprise telle quelle du module Personnel).
 inline QString hashPassword(const QString &s) {
@@ -36,13 +38,13 @@ public:
         mark->setFixedSize(58,58);
         auto *word = new QLabel("WaterFlow");
         word->setObjectName("brandWord");
-        auto *tag = new QLabel("SMART OPERATIONS\nPEOPLE. PRODUCTION. PROGRESS.");
+        auto *tag = new QLabel("SMART WATER FACTORY\nPERSONNEL · COMMANDES · LIVRAISONS");
         tag->setObjectName("brandTag");
         tag->setWordWrap(true);
-        auto *decor = new QLabel("✦   WORK SMARTER\n\n     Manage your team\n     with clarity and control.");
-        decor->setStyleSheet("color:#E0E9F8;font-size:13pt;line-height:150%;");
-        auto *bottom = new QLabel("PERSONNEL MANAGEMENT  •  v1.0");
-        bottom->setStyleSheet("color:#8297B8;font-size:8pt;letter-spacing:1px;");
+        auto *decor = new QLabel("Pilotez votre usine,\nde l'embouteillage\njusqu'à la livraison.");
+        decor->setStyleSheet("color:#D7EEF8;font-size:14pt;font-weight:600;");
+        auto *bottom = new QLabel("WATERFLOW  •  v2.0  •  ÉQUIPE VENCORD");
+        bottom->setStyleSheet("color:#8FC3DE;font-size:8pt;letter-spacing:1px;");
         brandLayout->addWidget(mark,0,Qt::AlignLeft);
         brandLayout->addSpacing(5);
         brandLayout->addWidget(word);
@@ -51,6 +53,7 @@ public:
         brandLayout->addWidget(decor);
         brandLayout->addStretch();
         brandLayout->addWidget(bottom);
+        new AnimationLivraison(brand, AnimationLivraison::Sombre);   // vagues et bulles animées
         root->addWidget(brand,4);
 
         auto *right = new QWidget;
@@ -106,7 +109,7 @@ private:
         QSettings settings("WaterFlow","Personnel");
         const QString u=user->text().trimmed(), p=pass->text();
         if (u.isEmpty() || p.isEmpty()) { error->setText("Veuillez remplir les deux champs."); return; }
-        if (settings.value("auth/"+u).toString() == hashPassword(p)) accept();
+        if (settings.value("auth/"+u).toString() == hashPassword(p)) { Session::ouvrir(u); accept(); }
         else error->setText("Identifiant ou mot de passe incorrect.");
     }
     QLineEdit *user{}, *pass{};

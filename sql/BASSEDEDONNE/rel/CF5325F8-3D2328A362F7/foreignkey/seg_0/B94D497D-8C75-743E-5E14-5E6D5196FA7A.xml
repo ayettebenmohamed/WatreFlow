@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B94D497D-8C75-743E-5E14-5E6D5196FA7A" containerWithKeyObject="688194E3-3803-7A31-F77A-E3E2028B89FC" localFKIndex="174080C9-75DF-18B2-8058-EFEDADF38DE0" name="FK_REGROUPE_COMMANDE">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>FK_REGROUPE_COMMANDE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:25 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<referredTableLongName>WF.COMMANDE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>44ABB546-BAD0-0195-1D03-1EA1E51A1993</referredTableID>
+<keyObject>78B4E646-6ACA-31B2-F245-E09BCBCCB86E</keyObject>
+<referredKeyID>78B4E646-6ACA-31B2-F245-E09BCBCCB86E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_COMMANDE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

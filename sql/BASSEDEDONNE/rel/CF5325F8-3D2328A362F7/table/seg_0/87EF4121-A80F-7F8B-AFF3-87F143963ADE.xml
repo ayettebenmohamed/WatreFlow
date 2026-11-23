@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="87EF4121-A80F-7F8B-AFF3-87F143963ADE" schemaObject="5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8" name="CONTIENT">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>CONTIENT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:19 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_COMMANDE" id="C4370FEF-63E8-7E01-F34A-F645482A8518">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>CONTIENT</sourceObjSchema>
+<sourceObjName>ID_COMMANDE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C58E8508-6F04-D960-CB22-4F427CC4EFEC" referredColumn="3409DA3C-C1E4-99B9-0C3D-2B23CF27AD94"/>
+</associations>
+</Column>
+<Column name="ID_PRODUIT" id="2DB8F180-7887-5822-7BEB-B00AB7669579">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>CONTIENT</sourceObjSchema>
+<sourceObjName>ID_PRODUIT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="762CC65F-BB7F-7291-8907-867FB15442FF" referredColumn="4E666E2F-0251-F4AC-4962-88B21853E6E0"/>
+</associations>
+</Column>
+<Column name="QUANTITE_COMMANDE" id="26CA6D89-2168-9B6F-BA85-931378B4233E">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>CONTIENT</sourceObjSchema>
+<sourceObjName>QUANTITE_COMMANDE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<constraintName>CK_CONTIENT_QTE</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="QUANTITE_COMMANDE &gt; 0"/>
+<implementationDef dbType="Oracle Database 11g" definition="QUANTITE_COMMANDE &gt; 0"/>
+</checkConstraint>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0E9AC558-F0A0-B380-A2C5-9A14D11506B1" name="PK_CONTIENT">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>PK_CONTIENT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:24 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C4370FEF-63E8-7E01-F34A-F645482A8518"/>
+<colUsage columnID="2DB8F180-7887-5822-7BEB-B00AB7669579"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="11E75F2D-2C7E-D359-37A5-1086F12C97A4" schemaObject="5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8" name="PK_CONTIENT">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>PK_CONTIENT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:22 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C4370FEF-63E8-7E01-F34A-F645482A8518"/>
+<colUsage columnID="2DB8F180-7887-5822-7BEB-B00AB7669579"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5A72FF87-0062-3515-C1A0-4A1B8A7D9D46" name="FK_CONTIENT_COMMANDE">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:25 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C4370FEF-63E8-7E01-F34A-F645482A8518"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D6277792-5DD6-82DA-E7EA-903CDD64AA54" name="FK_CONTIENT_PRODUIT">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:25 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2DB8F180-7887-5822-7BEB-B00AB7669579"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

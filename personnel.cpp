@@ -1,5 +1,5 @@
 #include "personnel.h"
-#include "ui_personnel.h"
+#include "ui_mainwindow.h"
 #include "barchart.h"
 #include <QHBoxLayout>
 #include <QHeaderView>
@@ -30,6 +30,8 @@
 #include <QSortFilterProxyModel>
 #include <QSqlQueryModel>
 #include <QSqlError>
+
+namespace {   // classes locales à ce fichier (évite le conflit avec Livraisons)
 
 // ---------------------------------------------------------------------------
 // Pastille colorée (planning)
@@ -74,6 +76,8 @@ public:
     }
 };
 
+} // namespace
+
 // ---------------------------------------------------------------------------
 // Proxy : recherche (ID, nom, prénom, poste) + filtre par département
 // ---------------------------------------------------------------------------
@@ -110,47 +114,37 @@ private:
 };
 
 // ---------------------------------------------------------------------------
-Personnel::Personnel(QWidget *parent):QWidget(parent),ui(new Ui::Personnel){
-    ui->setupUi(this);
-    ui->labelLogo->setText("◈  WaterFlow");
-    ui->menuLateral->setCurrentRow(1);
-    ui->menuLateral->setFocusPolicy(Qt::NoFocus);
-    const QList<QStyle::StandardPixmap> menuIcons = {
-        QStyle::SP_ComputerIcon, QStyle::SP_DirHomeIcon, QStyle::SP_DriveHDIcon,
-        QStyle::SP_FileDialogDetailedView, QStyle::SP_ArrowRight, QStyle::SP_DialogOpenButton,
-        QStyle::SP_FileDialogInfoView, QStyle::SP_MessageBoxWarning
-    };
-    for (int i=0; i<ui->menuLateral->count() && i<menuIcons.size(); ++i) {
-        ui->menuLateral->item(i)->setIcon(QApplication::style()->standardIcon(menuIcons[i]));
-        ui->menuLateral->item(i)->setSizeHint(QSize(0,44));
-    }
-    ui->btnAjouter->setIcon(QApplication::style()->standardIcon(QStyle::SP_FileDialogNewFolder));
-    ui->btnEnregistrer->setIcon(QApplication::style()->standardIcon(QStyle::SP_DialogSaveButton));
-    ui->btnSupprimer->setIcon(QApplication::style()->standardIcon(QStyle::SP_TrashIcon));
-    ui->btnExporter->setIcon(QApplication::style()->standardIcon(QStyle::SP_DialogSaveButton));
+Personnel::Personnel(QWidget *parent):QWidget(parent){}
+Personnel::~Personnel(){}
+
+// Relie la page aux widgets du mainwindow.ui (appelée par MainWindow après setupUi)
+void Personnel::initialiser(Ui::MainWindow *u){
+    ui=u;
+    ui->persBtnAjouter->setIcon(QApplication::style()->standardIcon(QStyle::SP_FileDialogNewFolder));
+    ui->persBtnEnregistrer->setIcon(QApplication::style()->standardIcon(QStyle::SP_DialogSaveButton));
+    ui->persBtnSupprimer->setIcon(QApplication::style()->standardIcon(QStyle::SP_TrashIcon));
+    ui->persBtnExporter->setIcon(QApplication::style()->standardIcon(QStyle::SP_DialogSaveButton));
 
     // Vue (QTableView) <- proxy (recherche / tri) <- modèle SQL (Etmp.afficher())
     m_filtre = new FiltreEmployes(this);
     m_filtre->setDynamicSortFilter(true);
     m_filtre->setSortCaseSensitivity(Qt::CaseInsensitive);
-    ui->tableEmployes->setModel(m_filtre);
-    ui->tableEmployes->setItemDelegateForColumn(6, new StatutDelegate(this));
-    ui->tableEmployes->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->persTableEmployes->setModel(m_filtre);
+    ui->persTableEmployes->setItemDelegateForColumn(6, new StatutDelegate(this));
+    ui->persTableEmployes->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    connect(ui->btnAjouter,&QPushButton::clicked,this,&Personnel::ajouterEmploye);
-    connect(ui->btnEnregistrer,&QPushButton::clicked,this,&Personnel::enregistrerEmploye);
-    connect(ui->btnSupprimer,&QPushButton::clicked,this,&Personnel::supprimerEmploye);
-    connect(ui->tableEmployes,&QTableView::clicked,this,&Personnel::selectionEmploye);
-    connect(ui->lineEditRecherche,&QLineEdit::textChanged,this,&Personnel::rechercher);
-    connect(ui->comboDepartement,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Personnel::rechercher);
-    connect(ui->comboTri,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Personnel::rechercher);
-    connect(ui->btnExporter,&QPushButton::clicked,this,&Personnel::exporterAttestation);
-    connect(ui->menuLateral,&QListWidget::currentRowChanged,this,&Personnel::menuClique);
+    connect(ui->persBtnAjouter,&QPushButton::clicked,this,&Personnel::ajouterEmploye);
+    connect(ui->persBtnEnregistrer,&QPushButton::clicked,this,&Personnel::enregistrerEmploye);
+    connect(ui->persBtnSupprimer,&QPushButton::clicked,this,&Personnel::supprimerEmploye);
+    connect(ui->persTableEmployes,&QTableView::clicked,this,&Personnel::selectionEmploye);
+    connect(ui->persLineEditRecherche,&QLineEdit::textChanged,this,&Personnel::rechercher);
+    connect(ui->persComboDepartement,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Personnel::rechercher);
+    connect(ui->persComboTri,QOverload<int>::of(&QComboBox::currentIndexChanged),this,&Personnel::rechercher);
+    connect(ui->persBtnExporter,&QPushButton::clicked,this,&Personnel::exporterAttestation);
 
     actualiser();
     viderFormulaire();
 }
-Personnel::~Personnel(){delete ui;}
 
 // ---------------------------------------------------------------------------
 // READ : recharge le modèle depuis la base via la classe Employe
@@ -171,12 +165,12 @@ void Personnel::actualiser()
     appliquerFiltres();
     rafraichirPlanning();
     rafraichirGraphique();
-    ui->labelInfo->setText(QString("Responsable RH · %1 employé(s)").arg(m_model->rowCount()));
+    ui->persLabelInfo->setText(QString("Responsable RH · %1 employé(s)").arg(m_model->rowCount()));
 }
 
 void Personnel::configurerTable()
 {
-    auto *t = ui->tableEmployes;
+    auto *t = ui->persTableEmployes;
     t->setColumnHidden(8, true);          // date d'embauche (formulaire)
     t->setColumnHidden(9, true);          // téléphone (formulaire)
     t->setColumnHidden(10, true);         // id_employe numérique
@@ -193,17 +187,17 @@ void Personnel::configurerTable()
 
 void Personnel::appliquerFiltres()
 {
-    const QString dep = ui->comboDepartement->currentIndex() == 0
-                            ? QString() : ui->comboDepartement->currentText();
-    m_filtre->setCritere(ui->lineEditRecherche->text(), dep);
-    const bool zVersA = ui->comboTri->currentText().contains("Z → A");
+    const QString dep = ui->persComboDepartement->currentIndex() == 0
+                            ? QString() : ui->persComboDepartement->currentText();
+    m_filtre->setCritere(ui->persLineEditRecherche->text(), dep);
+    const bool zVersA = ui->persComboTri->currentText().contains("Z → A");
     m_filtre->sort(1, zVersA ? Qt::DescendingOrder : Qt::AscendingOrder);
 }
 
 void Personnel::rechercher(){ appliquerFiltres(); }
 
 void Personnel::rafraichirPlanning(){
-    auto*t=ui->tablePlanning;
+    auto*t=ui->persTablePlanning;
     if(!m_model){ t->setRowCount(0); return; }
     const int n=m_model->rowCount();
     t->setRowCount(n);
@@ -224,7 +218,7 @@ void Personnel::rafraichirPlanning(){
 }
 
 void Personnel::rafraichirGraphique(){
-    while(auto*i=ui->layoutGraphique->takeAt(0)){delete i->widget();delete i;}
+    while(auto*i=ui->persLayoutGraphique->takeAt(0)){delete i->widget();delete i;}
     const QStringList labs={"Production","Maintenance","Logistique","Qualité"};
     QList<int> vals;
     for(const auto&d:labs){
@@ -233,7 +227,7 @@ void Personnel::rafraichirGraphique(){
             if(m_model->index(r,4).data().toString()==d) n++;
         vals<<n;
     }
-    auto*g=new BarChart; g->setData(labs,vals); ui->layoutGraphique->addWidget(g);
+    auto*g=new BarChart; g->setData(labs,vals); ui->persLayoutGraphique->addWidget(g);
 }
 
 // ---------------------------------------------------------------------------
@@ -241,52 +235,52 @@ void Personnel::rafraichirGraphique(){
 // ---------------------------------------------------------------------------
 void Personnel::viderFormulaire(){
     m_editingId=-1;
-    ui->lineEditNom->clear(); ui->lineEditPrenom->clear(); ui->comboPoste->setCurrentIndex(0);
-    ui->lineEditTelephone->clear(); ui->lineEditMail->clear();
-    ui->dateEditEmbauche->setDate(QDate::currentDate());
-    ui->comboDepartementFiche->setCurrentIndex(0);
-    ui->comboShift->setCurrentIndex(0);
-    ui->comboStatut->setCurrentIndex(0);
-    ui->labelTitreFiche->setText("Fiche employé — Nouveau");
-    ui->tableEmployes->clearSelection();
+    ui->persLineEditNom->clear(); ui->persLineEditPrenom->clear(); ui->persComboPoste->setCurrentIndex(0);
+    ui->persLineEditTelephone->clear(); ui->persLineEditMail->clear();
+    ui->persDateEditEmbauche->setDate(QDate::currentDate());
+    ui->persComboDepartementFiche->setCurrentIndex(0);
+    ui->persComboShift->setCurrentIndex(0);
+    ui->persComboStatut->setCurrentIndex(0);
+    ui->persLabelTitreFiche->setText("Fiche employé — Nouveau");
+    ui->persTableEmployes->clearSelection();
 }
 
 void Personnel::remplirFormulaire(int row){
-    const QAbstractItemModel *m=ui->tableEmployes->model();
+    const QAbstractItemModel *m=ui->persTableEmployes->model();
     if(!m || row<0 || row>=m->rowCount()) return;
     auto val=[&](int c){ return m->index(row,c).data(); };
 
     m_editingId=val(10).toInt();
-    ui->lineEditNom->setText(val(1).toString());
-    ui->lineEditPrenom->setText(val(2).toString());
+    ui->persLineEditNom->setText(val(1).toString());
+    ui->persLineEditPrenom->setText(val(2).toString());
     {   // poste inconnu de la liste (ancienne saisie libre) : on le garde affiché
         const QString poste=val(3).toString();
-        if(!poste.isEmpty() && ui->comboPoste->findText(poste)<0) ui->comboPoste->addItem(poste);
-        ui->comboPoste->setCurrentText(poste);
+        if(!poste.isEmpty() && ui->persComboPoste->findText(poste)<0) ui->persComboPoste->addItem(poste);
+        ui->persComboPoste->setCurrentText(poste);
     }
-    ui->comboDepartementFiche->setCurrentText(val(4).toString());
-    ui->comboShift->setCurrentText(val(5).toString());
-    ui->comboStatut->setCurrentText(val(6).toString());
-    ui->lineEditMail->setText(val(7).toString());
+    ui->persComboDepartementFiche->setCurrentText(val(4).toString());
+    ui->persComboShift->setCurrentText(val(5).toString());
+    ui->persComboStatut->setCurrentText(val(6).toString());
+    ui->persLineEditMail->setText(val(7).toString());
     const QDate d=val(8).toDate();
-    ui->dateEditEmbauche->setDate(d.isValid()?d:QDate::currentDate());
-    ui->lineEditTelephone->setText(val(9).toString());
-    ui->labelTitreFiche->setText("Fiche employé — "+val(0).toString());
+    ui->persDateEditEmbauche->setDate(d.isValid()?d:QDate::currentDate());
+    ui->persLineEditTelephone->setText(val(9).toString());
+    ui->persLabelTitreFiche->setText("Fiche employé — "+val(0).toString());
 }
 
 void Personnel::selectionEmploye(const QModelIndex &index){ remplirFormulaire(index.row()); }
 
 int Personnel::idSelectionne() const{
-    const auto sel=ui->tableEmployes->selectionModel()->selectedRows();
+    const auto sel=ui->persTableEmployes->selectionModel()->selectedRows();
     if(sel.isEmpty()) return -1;
-    const int id=ui->tableEmployes->model()->index(sel.first().row(),10).data().toInt();
+    const int id=ui->persTableEmployes->model()->index(sel.first().row(),10).data().toInt();
     return id>0?id:-1;
 }
 
 bool Personnel::employeSelectionne(Employe &e) const{
-    const auto sel=ui->tableEmployes->selectionModel()->selectedRows();
+    const auto sel=ui->persTableEmployes->selectionModel()->selectedRows();
     if(sel.isEmpty()) return false;
-    const QAbstractItemModel *m=ui->tableEmployes->model();
+    const QAbstractItemModel *m=ui->persTableEmployes->model();
     const int row=sel.first().row();
     auto val=[&](int c){ return m->index(row,c).data(); };
     e=Employe(val(10).toInt(),val(1).toString(),val(2).toString(),val(3).toString(),val(4).toString(),
@@ -295,11 +289,11 @@ bool Personnel::employeSelectionne(Employe &e) const{
 }
 
 void Personnel::selectionnerParId(int id){
-    const QAbstractItemModel *m=ui->tableEmployes->model();
+    const QAbstractItemModel *m=ui->persTableEmployes->model();
     for(int r=0;r<m->rowCount();++r){
         if(m->index(r,10).data().toInt()==id){
-            ui->tableEmployes->selectRow(r);
-            ui->tableEmployes->scrollTo(m->index(r,0));
+            ui->persTableEmployes->selectRow(r);
+            ui->persTableEmployes->scrollTo(m->index(r,0));
             remplirFormulaire(r);
             return;
         }
@@ -308,41 +302,41 @@ void Personnel::selectionnerParId(int id){
 
 // Contrôle de saisie (en C++) puis remplissage de l'objet Employe
 bool Personnel::lireFormulaire(Employe &e){
-    const QString nom=ui->lineEditNom->text().trimmed(), prenom=ui->lineEditPrenom->text().trimmed();
+    const QString nom=ui->persLineEditNom->text().trimmed(), prenom=ui->persLineEditPrenom->text().trimmed();
     if(nom.isEmpty()||prenom.isEmpty()){
         QMessageBox::warning(this,"Données manquantes","Le nom et le prénom sont obligatoires.");
         return false;
     }
     static const QRegularExpression reTel("^\\+?[0-9\\s.()-]+$");
-    const QString tel=ui->lineEditTelephone->text().trimmed();
+    const QString tel=ui->persLineEditTelephone->text().trimmed();
     if(!tel.isEmpty()){
         int chiffres=0; for(const QChar &c:tel) if(c.isDigit()) ++chiffres;
         if(!reTel.match(tel).hasMatch()||chiffres<8||chiffres>15){
             QMessageBox::warning(this,"Téléphone invalide","Le téléphone doit contenir de 8 à 15 chiffres (ex. 71 123 456 ou +216 71 123 456).");
-            ui->lineEditTelephone->setFocus();
+            ui->persLineEditTelephone->setFocus();
             return false;
         }
     }
     static const QRegularExpression reMail("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
-    const QString mail=ui->lineEditMail->text().trimmed();
+    const QString mail=ui->persLineEditMail->text().trimmed();
     if(!mail.isEmpty() && !reMail.match(mail).hasMatch()){
         QMessageBox::warning(this,"E-mail invalide","Saisissez une adresse e-mail valide (ex. prenom.nom@societe.com).");
-        ui->lineEditMail->setFocus();
+        ui->persLineEditMail->setFocus();
         return false;
     }
-    if(ui->dateEditEmbauche->date()>QDate::currentDate()){
+    if(ui->persDateEditEmbauche->date()>QDate::currentDate()){
         QMessageBox::warning(this,"Date invalide","La date d'embauche ne peut pas être dans le futur.");
         return false;
     }
     e.setNom(nom);
     e.setPrenom(prenom);
-    e.setPoste(ui->comboPoste->currentText());
-    e.setDepartement(ui->comboDepartementFiche->currentText());
-    e.setDateEmbauche(ui->dateEditEmbauche->date());
+    e.setPoste(ui->persComboPoste->currentText());
+    e.setDepartement(ui->persComboDepartementFiche->currentText());
+    e.setDateEmbauche(ui->persDateEditEmbauche->date());
     e.setTelephone(tel);
     e.setMail(mail);
-    e.setShift(ui->comboShift->currentText());
-    e.setStatut(ui->comboStatut->currentText());
+    e.setShift(ui->persComboShift->currentText());
+    e.setStatut(ui->persComboStatut->currentText());
     return true;
 }
 
@@ -362,8 +356,8 @@ void Personnel::sauvegarder(bool creation){
     const bool test = creation ? E.ajouter() : E.modifier();
 
     if(test){
-        ui->lineEditRecherche->clear();
-        ui->comboDepartement->setCurrentIndex(0);
+        ui->persLineEditRecherche->clear();
+        ui->persComboDepartement->setCurrentIndex(0);
         actualiser();                           // Refresh : Etmp.afficher() -> setModel
         selectionnerParId(E.getID());
         QMessageBox::information(this,"OK",creation?"Ajout effectué.":"Modification effectuée.");
@@ -375,9 +369,9 @@ void Personnel::sauvegarder(bool creation){
 
 void Personnel::ajouterEmploye(){
     // Un employé est sélectionné -> on prépare une fiche vierge ; sinon on ajoute.
-    if(m_editingId>=0 || (ui->lineEditNom->text().trimmed().isEmpty() && ui->lineEditPrenom->text().trimmed().isEmpty())){
+    if(m_editingId>=0 || (ui->persLineEditNom->text().trimmed().isEmpty() && ui->persLineEditPrenom->text().trimmed().isEmpty())){
         viderFormulaire();
-        ui->lineEditNom->setFocus();
+        ui->persLineEditNom->setFocus();
         return;
     }
     sauvegarder(true);
@@ -530,5 +524,3 @@ void Personnel::exporterAttestation(){
     if(box.clickedButton()==ouvrir) QDesktopServices::openUrl(QUrl::fromLocalFile(chemin));
 }
 
-void Personnel::menuClique(int row){if(row==1)return;QStringList names={"Tableau de bord","Personnel","Équipements","Production & stocks","Commandes","Livraisons","Statistiques","Alertes"};QMessageBox::information(this,names.value(row),"Cette section est prête pour être reliée à son module.\nLa gestion du personnel reste accessible via Personnel.");ui->menuLateral->setCurrentRow(1);}
-void Personnel::deconnecter(){close();}

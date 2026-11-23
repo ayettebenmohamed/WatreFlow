@@ -6,48 +6,112 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>800</height>
+    <width>1440</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>WaterFlow - Gestion des Commandes</string>
+   <string>WaterFlow — Smart Water Factory</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
-     <widget class="QListWidget" name="listWidget">
+     <widget class="QFrame" name="appSidebar">
+      <property name="minimumSize">
+       <size>
+        <width>220</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
-        <width>200</width>
+        <width>220</width>
         <height>16777215</height>
        </size>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QListWidget { background-color: #2c3e50; color: white; border: none; }
-QListWidget::item { padding: 15px; border-bottom: 1px solid #34495e; }
-QListWidget::item:selected { background-color: #3498db; }</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>Commandes</string>
+      <layout class="QVBoxLayout" name="layoutSidebar">
+       <property name="spacing">
+        <number>4</number>
        </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Livraisons</string>
+       <property name="leftMargin">
+        <number>14</number>
        </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Personnel</string>
+       <property name="topMargin">
+        <number>18</number>
        </property>
-      </item>
+       <property name="rightMargin">
+        <number>14</number>
+       </property>
+       <property name="bottomMargin">
+        <number>16</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="appLogo">
+         <property name="text">
+          <string>💧 WaterFlow</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="appSlogan">
+         <property name="text">
+          <string>SMART WATER FACTORY</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listWidget">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>Tableau de bord</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Commandes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Livraisons</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Personnel</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="appUtilisateur">
+         <property name="text">
+          <string>Connecté</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
     <item>
@@ -55,25 +119,2804 @@ QListWidget::item:selected { background-color: #3498db; }</string>
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="pageCommandes"/>
-      <widget class="QWidget" name="pageLivraisons"/>
-      <widget class="QWidget" name="pagePersonnel"/>
+      <widget class="QWidget" name="pageTableauBord">
+       <layout class="QVBoxLayout" name="dashLayoutPage" stretch="0,0,1">
+        <property name="spacing">
+         <number>14</number>
+        </property>
+        <property name="leftMargin">
+         <number>18</number>
+        </property>
+        <property name="topMargin">
+         <number>14</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>14</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="dashHero">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>116</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="dashLayoutHero">
+           <property name="leftMargin">
+            <number>24</number>
+           </property>
+           <property name="topMargin">
+            <number>14</number>
+           </property>
+           <property name="rightMargin">
+            <number>20</number>
+           </property>
+           <property name="bottomMargin">
+            <number>34</number>
+           </property>
+           <item>
+            <layout class="QVBoxLayout" name="dashLayoutTitres">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="dashLabelTitre">
+               <property name="text">
+                <string>Tableau de bord</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="dashLabelSousTitre">
+               <property name="text">
+                <string>Vue d'ensemble de l'usine : personnel, commandes et livraisons en temps réel</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="dashSpacerHero">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="dashLabelHorloge">
+             <property name="text">
+              <string>--</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="dashLayoutModules">
+          <property name="spacing">
+           <number>14</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="dashCartePersonnel">
+            <property name="role" stdset="0">
+             <string>module</string>
+            </property>
+            <property name="accent" stdset="0">
+             <string>bleu</string>
+            </property>
+            <layout class="QVBoxLayout" name="dashCartePersonnelLayout">
+             <property name="spacing">
+              <number>12</number>
+             </property>
+             <property name="leftMargin">
+              <number>18</number>
+             </property>
+             <property name="topMargin">
+              <number>16</number>
+             </property>
+             <property name="rightMargin">
+              <number>18</number>
+             </property>
+             <property name="bottomMargin">
+              <number>16</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="dashCartePersonnelTitre">
+               <property name="text">
+                <string>Personnel</string>
+               </property>
+               <property name="role" stdset="0">
+                <string>dashTitreModule</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="dashCartePersonnelSousTitre">
+               <property name="text">
+                <string>Effectif et disponibilité des équipes</string>
+               </property>
+               <property name="role" stdset="0">
+                <string>dashTexte</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="dashCartePersonnelKpis">
+               <property name="spacing">
+                <number>14</number>
+               </property>
+               <item>
+                <layout class="QVBoxLayout" name="dashPersEffectifLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashPersEffectifValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashPersEffectifTexte">
+                   <property name="text">
+                    <string>Effectif</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="dashPersActifsLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashPersActifsValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashPersActifsTexte">
+                   <property name="text">
+                    <string>Actifs</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="dashPersAbsentsLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashPersAbsentsValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashPersAbsentsTexte">
+                   <property name="text">
+                    <string>En congé / suspendus</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="dashPersLivreursLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashPersLivreursValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashPersLivreursTexte">
+                   <property name="text">
+                    <string>Livreurs actifs</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="dashCartePersonnelSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>4</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="dashCartePersonnelBouton">
+               <property name="text">
+                <string>Ouvrir Personnel  →</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="dashCarteCommandes">
+            <property name="role" stdset="0">
+             <string>module</string>
+            </property>
+            <property name="accent" stdset="0">
+             <string>cyan</string>
+            </property>
+            <layout class="QVBoxLayout" name="dashCarteCommandesLayout">
+             <property name="spacing">
+              <number>12</number>
+             </property>
+             <property name="leftMargin">
+              <number>18</number>
+             </property>
+             <property name="topMargin">
+              <number>16</number>
+             </property>
+             <property name="rightMargin">
+              <number>18</number>
+             </property>
+             <property name="bottomMargin">
+              <number>16</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="dashCarteCommandesTitre">
+               <property name="text">
+                <string>Commandes</string>
+               </property>
+               <property name="role" stdset="0">
+                <string>dashTitreModule</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="dashCarteCommandesSousTitre">
+               <property name="text">
+                <string>Suivi des commandes clients</string>
+               </property>
+               <property name="role" stdset="0">
+                <string>dashTexte</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="dashCarteCommandesKpis">
+               <property name="spacing">
+                <number>14</number>
+               </property>
+               <item>
+                <layout class="QVBoxLayout" name="dashCmdTotalLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashCmdTotalValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashCmdTotalTexte">
+                   <property name="text">
+                    <string>Commandes</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="dashCmdAttenteLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashCmdAttenteValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashCmdAttenteTexte">
+                   <property name="text">
+                    <string>En attente</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="dashCmdCaLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashCmdCaValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashCmdCaTexte">
+                   <property name="text">
+                    <string>Chiffre d'affaires (TND)</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="dashCmdAlertesLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashCmdAlertesValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashCmdAlertesTexte">
+                   <property name="text">
+                    <string>Quantités &gt; 200</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="dashCarteCommandesSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>4</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="dashCarteCommandesBouton">
+               <property name="text">
+                <string>Ouvrir Commandes  →</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="dashCarteLivraisons">
+            <property name="role" stdset="0">
+             <string>module</string>
+            </property>
+            <property name="accent" stdset="0">
+             <string>vert</string>
+            </property>
+            <layout class="QVBoxLayout" name="dashCarteLivraisonsLayout">
+             <property name="spacing">
+              <number>12</number>
+             </property>
+             <property name="leftMargin">
+              <number>18</number>
+             </property>
+             <property name="topMargin">
+              <number>16</number>
+             </property>
+             <property name="rightMargin">
+              <number>18</number>
+             </property>
+             <property name="bottomMargin">
+              <number>16</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="dashCarteLivraisonsTitre">
+               <property name="text">
+                <string>Livraisons</string>
+               </property>
+               <property name="role" stdset="0">
+                <string>dashTitreModule</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="dashCarteLivraisonsSousTitre">
+               <property name="text">
+                <string>Logistique et tournées des livreurs</string>
+               </property>
+               <property name="role" stdset="0">
+                <string>dashTexte</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="dashCarteLivraisonsKpis">
+               <property name="spacing">
+                <number>14</number>
+               </property>
+               <item>
+                <layout class="QVBoxLayout" name="dashLivTotalLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashLivTotalValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashLivTotalTexte">
+                   <property name="text">
+                    <string>Livraisons</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="dashLivActivesLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashLivActivesValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashLivActivesTexte">
+                   <property name="text">
+                    <string>Planifiées / en cours</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="dashLivRetardsLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashLivRetardsValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashLivRetardsTexte">
+                   <property name="text">
+                    <string>En retard</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="dashLivPonctualiteLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dashLivPonctualiteValeur">
+                   <property name="text">
+                    <string>—</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashValeur</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dashLivPonctualiteTexte">
+                   <property name="text">
+                    <string>Ponctualité</string>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>dashTexte</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="dashCarteLivraisonsSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>4</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="dashCarteLivraisonsBouton">
+               <property name="text">
+                <string>Ouvrir Livraisons  →</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QFrame" name="dashCarteAlertes">
+          <property name="role" stdset="0">
+           <string>module</string>
+          </property>
+          <layout class="QVBoxLayout" name="dashLayoutAlertes">
+           <property name="leftMargin">
+            <number>18</number>
+           </property>
+           <property name="topMargin">
+            <number>14</number>
+           </property>
+           <property name="rightMargin">
+            <number>18</number>
+           </property>
+           <property name="bottomMargin">
+            <number>14</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="dashLabelAlertes">
+             <property name="text">
+              <string>Alertes et activité</string>
+             </property>
+             <property name="role" stdset="0">
+              <string>dashTitreModule</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QListWidget" name="dashListeAlertes">
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::NoSelection</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageCommandes">
+       <layout class="QVBoxLayout" name="cmdLayoutPage">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QScrollArea" name="cmdScroll">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="cmdContenu">
+           <layout class="QVBoxLayout" name="cmdLayoutContenu">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="leftMargin">
+             <number>18</number>
+            </property>
+            <property name="topMargin">
+             <number>14</number>
+            </property>
+            <property name="rightMargin">
+             <number>18</number>
+            </property>
+            <property name="bottomMargin">
+             <number>14</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="cmdLabelTitre">
+              <property name="text">
+               <string>Gestion des Commandes</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="cmdLayoutRecherche" stretch="1,0,0">
+              <item>
+               <widget class="QLineEdit" name="cmdLineEditRecherche">
+                <property name="placeholderText">
+                 <string>Rechercher (ID, client, produit, adresse)...</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cmdComboFiltreStatut">
+                <item>
+                 <property name="text">
+                  <string>Tous les statuts</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>En attente</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>En préparation</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Expédiée</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Livrée</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Annulée</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="cmdBtnTrierDate">
+                <property name="text">
+                 <string>Trier par Date</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableView" name="cmdTableView">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>250</height>
+               </size>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::SingleSelection</enum>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="cmdGroupDetails">
+              <property name="title">
+               <string>Détails de la commande</string>
+              </property>
+              <layout class="QGridLayout" name="cmdGrilleFormulaire">
+               <item row="0" column="0">
+                <widget class="QLabel" name="cmdLabelForm0a">
+                 <property name="text">
+                  <string>ID Commande :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="cmdLineEditId">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Généré automatiquement</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="cmdLabelForm0b">
+                 <property name="text">
+                  <string>Client / Société :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLineEdit" name="cmdLineEditClient">
+                 <property name="maxLength">
+                  <number>150</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="cmdLabelForm1a">
+                 <property name="text">
+                  <string>Produits :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="cmdLineEditProduit">
+                 <property name="maxLength">
+                  <number>500</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="cmdLabelForm1b">
+                 <property name="text">
+                  <string>Quantité :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="cmdLineEditQuantite" />
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="cmdLabelForm2a">
+                 <property name="text">
+                  <string>Date commande :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QDateEdit" name="cmdDateEditCommande">
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                 <property name="displayFormat">
+                  <string>dd/MM/yyyy</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QLabel" name="cmdLabelForm2b">
+                 <property name="text">
+                  <string>Date prévisionnelle :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QDateEdit" name="cmdDateEditPrevue">
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                 <property name="displayFormat">
+                  <string>dd/MM/yyyy</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="cmdLabelForm3a">
+                 <property name="text">
+                  <string>Adresse livraison :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="cmdLineEditAdresse">
+                 <property name="maxLength">
+                  <number>200</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLabel" name="cmdLabelForm3b">
+                 <property name="text">
+                  <string>Montant (TND) :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="3">
+                <widget class="QLineEdit" name="cmdLineEditMontant" />
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="cmdLabelForm4a">
+                 <property name="text">
+                  <string>Statut :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QComboBox" name="cmdComboStatut">
+                 <item>
+                  <property name="text">
+                   <string>En attente</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>En préparation</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Expédiée</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Livrée</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Annulée</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QLabel" name="cmdLabelForm4b">
+                 <property name="text">
+                  <string>Transporteur :</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="3">
+                <widget class="QLineEdit" name="cmdLineEditTransporteur">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Assigné depuis le module Livraisons</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="cmdLayoutBoutons">
+              <item>
+               <spacer name="cmdSpacerBoutons">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="cmdBtnAjouter">
+                <property name="text">
+                 <string>Ajouter</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="cmdBtnModifier">
+                <property name="text">
+                 <string>Modifier</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="cmdBtnSupprimer">
+                <property name="text">
+                 <string>Supprimer</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="cmdBtnVider">
+                <property name="text">
+                 <string>Vider</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="cmdBtnVerifierRetards">
+                <property name="text">
+                 <string>Vérifier Retards</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="cmdBtnExporterCsv">
+                <property name="text">
+                 <string>Exporter CSV</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="cmdLabelCaTotal">
+              <property name="text">
+               <string />
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="cmdLabelStats">
+              <property name="text">
+               <string />
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="cmdLabelAlertes">
+              <property name="text">
+               <string>Alertes</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="cmdTableAlertes">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>110</height>
+               </size>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+              <column>
+               <property name="text">
+                <string>ID Cmd</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Client</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Alerte</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="Livraisons" name="pageLivraisons">
+       <layout class="QVBoxLayout" name="livLayoutRacine" stretch="0,0,1">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <property name="leftMargin">
+         <number>18</number>
+        </property>
+        <property name="topMargin">
+         <number>14</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>14</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="livHeroLivraison">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>116</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="livLayoutEntete">
+           <property name="leftMargin">
+            <number>24</number>
+           </property>
+           <property name="topMargin">
+            <number>14</number>
+           </property>
+           <property name="rightMargin">
+            <number>20</number>
+           </property>
+           <property name="bottomMargin">
+            <number>34</number>
+           </property>
+           <item>
+            <layout class="QVBoxLayout" name="livLayoutTitres">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="livLabelTitre">
+               <property name="text">
+                <string>Logistique de livraison</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="livLabelSousTitre">
+               <property name="text">
+                <string>Planification, suivi en temps réel et optimisation des tournées</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="livSpacerEntete">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="livLabelHorloge">
+             <property name="text">
+              <string>--</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="livFrameAlerteRetard">
+          <layout class="QHBoxLayout" name="livLayoutAlerteRetard" stretch="1,0">
+           <property name="leftMargin">
+            <number>14</number>
+           </property>
+           <property name="topMargin">
+            <number>8</number>
+           </property>
+           <property name="rightMargin">
+            <number>10</number>
+           </property>
+           <property name="bottomMargin">
+            <number>8</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="livLabelAlerteRetard">
+             <property name="text">
+              <string>Alerte</string>
+             </property>
+             <property name="textFormat">
+              <enum>Qt::RichText</enum>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="livBtnVoirRetards">
+             <property name="text">
+              <string>Voir les retards</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTabWidget" name="livTabsLivraison">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="documentMode">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="livTabPlanification">
+           <attribute name="title">
+            <string>Planification</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="livLayoutPlanification" stretch="0,0,1">
+            <property name="spacing">
+             <number>12</number>
+            </property>
+            <property name="leftMargin">
+             <number>2</number>
+            </property>
+            <property name="topMargin">
+             <number>12</number>
+            </property>
+            <property name="rightMargin">
+             <number>2</number>
+            </property>
+            <property name="bottomMargin">
+             <number>2</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="livLayoutKpi">
+              <property name="spacing">
+               <number>12</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="livKpiTotal">
+                <layout class="QVBoxLayout" name="livLk1">
+                 <item>
+                  <widget class="QLabel" name="livKpiTotalValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livKpiTotalTexte">
+                   <property name="text">
+                    <string>Livraisons</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="livKpiEnCours">
+                <layout class="QVBoxLayout" name="livLk2">
+                 <item>
+                  <widget class="QLabel" name="livKpiEnCoursValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livKpiEnCoursTexte">
+                   <property name="text">
+                    <string>Planifiées / en cours</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="livKpiRetard">
+                <layout class="QVBoxLayout" name="livLk3">
+                 <item>
+                  <widget class="QLabel" name="livKpiRetardValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livKpiRetardTexte">
+                   <property name="text">
+                    <string>En retard</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="livKpiLivrees">
+                <layout class="QVBoxLayout" name="livLk4">
+                 <item>
+                  <widget class="QLabel" name="livKpiLivreesValeur">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livKpiLivreesTexte">
+                   <property name="text">
+                    <string>Livrées</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="livKpiPonctualite">
+                <layout class="QVBoxLayout" name="livLk5">
+                 <item>
+                  <widget class="QLabel" name="livKpiPonctualiteValeur">
+                   <property name="text">
+                    <string>—</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livKpiPonctualiteTexte">
+                   <property name="text">
+                    <string>Ponctualité</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="livLayoutFiltres" stretch="3,1,1,1,0">
+              <property name="spacing">
+               <number>8</number>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="livLineEditRecherche">
+                <property name="placeholderText">
+                 <string>Rechercher : livreur, client, zone, véhicule, n°…</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="livComboFiltreStatut">
+                <property name="toolTip">
+                 <string>Filtrer par statut</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Tous les statuts</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Planifiée</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>En cours</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Livrée</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Retardée</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Échouée</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="livComboFiltreZone">
+                <property name="toolTip">
+                 <string>Filtrer par zone géographique</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="livComboTri">
+                <property name="toolTip">
+                 <string>Trier la liste</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Tri : n° de livraison</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Tri : départ (plus récent)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Tri : départ (plus ancien)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Tri : statut (urgences d'abord)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Tri : livreur</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="livBtnExporterListe">
+                <property name="text">
+                 <string>Exporter la liste (PDF)</string>
+                </property>
+                <property name="toolTip">
+                 <string>Exporte les livraisons affichées (filtres appliqués)</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="livLayoutCentre" stretch="3,2">
+              <property name="spacing">
+               <number>12</number>
+              </property>
+              <item>
+               <widget class="QTableView" name="livTableView">
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="selectionBehavior">
+                 <enum>QAbstractItemView::SelectRows</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::NoEditTriggers</set>
+                </property>
+                <property name="showGrid">
+                 <bool>false</bool>
+                </property>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>false</bool>
+                </attribute>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="livGroupDetails">
+                <property name="maximumSize">
+                 <size>
+                  <width>470</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="title">
+                 <string>Nouvelle livraison</string>
+                </property>
+                <layout class="QVBoxLayout" name="livLayoutDetails">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <layout class="QGridLayout" name="livGridDetails">
+                   <property name="horizontalSpacing">
+                    <number>10</number>
+                   </property>
+                   <property name="verticalSpacing">
+                    <number>8</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="livL1">
+                     <property name="text">
+                      <string>Commande *</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1" colspan="3">
+                    <widget class="QComboBox" name="livComboCommande">
+                     <property name="toolTip">
+                      <string>Commandes à livrer (module Commandes)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="livL2">
+                     <property name="text">
+                      <string>Livreur *</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1" colspan="3">
+                    <widget class="QComboBox" name="livComboChauffeur">
+                     <property name="toolTip">
+                      <string>Employés actifs au poste « Livreur » (module Personnel)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="livL3">
+                     <property name="text">
+                      <string>Véhicule *</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="livLineEditVehicule">
+                     <property name="placeholderText">
+                      <string>123 TUN 4567</string>
+                     </property>
+                     <property name="maxLength">
+                      <number>20</number>
+                     </property>
+                     <property name="toolTip">
+                      <string>Immatriculation tunisienne : 123 TUN 4567 ou RS 123456</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QLabel" name="livL4">
+                     <property name="text">
+                      <string>Zone</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QComboBox" name="livComboZone" />
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="livL5">
+                     <property name="text">
+                      <string>Départ *</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1" colspan="3">
+                    <widget class="QLineEdit" name="livLineEditDepart">
+                     <property name="placeholderText">
+                      <string>Adresse de départ</string>
+                     </property>
+                     <property name="maxLength">
+                      <number>200</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="livL6">
+                     <property name="text">
+                      <string>Arrivée *</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1" colspan="3">
+                    <widget class="QLineEdit" name="livLineEditArrivee">
+                     <property name="placeholderText">
+                      <string>Adresse de livraison (proposée depuis la commande)</string>
+                     </property>
+                     <property name="maxLength">
+                      <number>200</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="livL7">
+                     <property name="text">
+                      <string>Départ prévu</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1" colspan="3">
+                    <widget class="QDateTimeEdit" name="livDateTimeEditDepart">
+                     <property name="displayFormat">
+                      <string>dd/MM/yyyy HH:mm</string>
+                     </property>
+                     <property name="calendarPopup">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="livL8">
+                     <property name="text">
+                      <string>Arrivée prévue</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1" colspan="3">
+                    <widget class="QDateTimeEdit" name="livDateTimeEditArrivee">
+                     <property name="displayFormat">
+                      <string>dd/MM/yyyy HH:mm</string>
+                     </property>
+                     <property name="calendarPopup">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="livL9">
+                     <property name="text">
+                      <string>Statut</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1">
+                    <widget class="QComboBox" name="livComboStatut">
+                     <item>
+                      <property name="text">
+                       <string>Planifiée</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>En cours</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Livrée</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Retardée</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Échouée</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item row="7" column="2" colspan="2">
+                    <widget class="QLabel" name="livLabelEstimation">
+                     <property name="text">
+                      <string />
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livLabelAide">
+                   <property name="text">
+                    <string>* champs obligatoires. La commande liée suit automatiquement le statut de sa livraison.</string>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="livSpacerDetails">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>10</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <layout class="QGridLayout" name="livGridBoutons">
+                   <property name="spacing">
+                    <number>8</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="livBtnNouveau">
+                     <property name="text">
+                      <string>Nouveau</string>
+                     </property>
+                     <property name="toolTip">
+                      <string>Vider le formulaire pour planifier une nouvelle livraison</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="livBtnAjouter">
+                     <property name="text">
+                      <string>Planifier</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QPushButton" name="livBtnModifier">
+                     <property name="text">
+                      <string>Enregistrer</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QPushButton" name="livBtnSupprimer">
+                     <property name="text">
+                      <string>Supprimer</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1" colspan="2">
+                    <widget class="QPushButton" name="livBtnPdf">
+                     <property name="text">
+                      <string>Bordereau de livraison (PDF)</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="livTabStatistiques">
+           <attribute name="title">
+            <string>Statistiques</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="livLayoutStatistiques" stretch="0,1">
+            <property name="spacing">
+             <number>12</number>
+            </property>
+            <property name="leftMargin">
+             <number>2</number>
+            </property>
+            <property name="topMargin">
+             <number>12</number>
+            </property>
+            <property name="rightMargin">
+             <number>2</number>
+            </property>
+            <property name="bottomMargin">
+             <number>2</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="livLayoutKpiStats">
+              <property name="spacing">
+               <number>12</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="livStatDelai">
+                <layout class="QVBoxLayout" name="livLs1">
+                 <item>
+                  <widget class="QLabel" name="livStatDelaiValeur">
+                   <property name="text">
+                    <string>—</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livStatDelaiTexte">
+                   <property name="text">
+                    <string>Délai moyen commande → livraison</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="livStatDuree">
+                <layout class="QVBoxLayout" name="livLs2">
+                 <item>
+                  <widget class="QLabel" name="livStatDureeValeur">
+                   <property name="text">
+                    <string>—</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livStatDureeTexte">
+                   <property name="text">
+                    <string>Durée moyenne départ → client</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="livStatCible">
+                <layout class="QVBoxLayout" name="livLs3">
+                 <item>
+                  <widget class="QLabel" name="livStatCibleValeur">
+                   <property name="text">
+                    <string>—</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livStatCibleTexte">
+                   <property name="text">
+                    <string>Livrées en moins de 48 h</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="livStatPonctualite">
+                <layout class="QVBoxLayout" name="livLs4">
+                 <item>
+                  <widget class="QLabel" name="livStatPonctualiteValeur">
+                   <property name="text">
+                    <string>—</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="livStatPonctualiteTexte">
+                   <property name="text">
+                    <string>Livrées à l'heure prévue</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="livLayoutGraphiques" stretch="2,3">
+              <property name="spacing">
+               <number>12</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="livCardChartStatut">
+                <layout class="QVBoxLayout" name="livLayoutChartStatut">
+                 <property name="leftMargin">
+                  <number>6</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>6</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>6</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>6</number>
+                 </property>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="livCardChartLivreur">
+                <layout class="QVBoxLayout" name="livLayoutChartLivreur">
+                 <property name="leftMargin">
+                  <number>6</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>6</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>6</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>6</number>
+                 </property>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="livTabTournee">
+           <attribute name="title">
+            <string>Tournées &amp;&amp; ETA</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="livLayoutTournee" stretch="0,0,1">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="leftMargin">
+             <number>2</number>
+            </property>
+            <property name="topMargin">
+             <number>12</number>
+            </property>
+            <property name="rightMargin">
+             <number>2</number>
+            </property>
+            <property name="bottomMargin">
+             <number>2</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="livLayoutOutilsTournee">
+              <property name="spacing">
+               <number>8</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="livLt1">
+                <property name="text">
+                 <string>Livreur</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="livComboTourneeLivreur">
+                <property name="minimumSize">
+                 <size>
+                  <width>220</width>
+                  <height>0</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="livLt2">
+                <property name="text">
+                 <string>Jour</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateEdit" name="livDateTournee">
+                <property name="displayFormat">
+                 <string>dd/MM/yyyy</string>
+                </property>
+                <property name="calendarPopup">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="livBtnCalculerTournee">
+                <property name="text">
+                 <string>Calculer la tournée</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="livBtnOptimiser">
+                <property name="text">
+                 <string>Optimiser l'itinéraire</string>
+                </property>
+                <property name="toolTip">
+                 <string>Ordre de passage le plus court depuis le dépôt</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="livBtnEnregistrerItineraire">
+                <property name="text">
+                 <string>Valider la tournée</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="livBtnAlerterClients">
+                <property name="text">
+                 <string>Alerter les clients en retard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="livSpacerTournee">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="livLabelResumeTournee">
+              <property name="text">
+               <string>Sélectionnez un livreur et un jour.</string>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::RichText</enum>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="livLayoutTourneeCentre" stretch="3,2">
+              <property name="spacing">
+               <number>12</number>
+              </property>
+              <item>
+               <widget class="QTableWidget" name="livTableTournee">
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="selectionBehavior">
+                 <enum>QAbstractItemView::SelectRows</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::NoEditTriggers</set>
+                </property>
+                <property name="showGrid">
+                 <bool>false</bool>
+                </property>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="livCardCarte">
+                <layout class="QVBoxLayout" name="livLayoutCarte">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="livTabTracabilite">
+           <attribute name="title">
+            <string>Traçabilité</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="livLayoutTracabilite" stretch="0,1">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="leftMargin">
+             <number>2</number>
+            </property>
+            <property name="topMargin">
+             <number>12</number>
+            </property>
+            <property name="rightMargin">
+             <number>2</number>
+            </property>
+            <property name="bottomMargin">
+             <number>2</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="livLayoutFiltreHistorique" stretch="1,0,0">
+              <item>
+               <widget class="QLineEdit" name="livLineEditHistorique">
+                <property name="placeholderText">
+                 <string>Rechercher dans l'historique : action, utilisateur, n° de livraison…</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="livCheckHistoriqueSelection">
+                <property name="text">
+                 <string>Livraison sélectionnée uniquement</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="livBtnActualiserHistorique">
+                <property name="text">
+                 <string>Actualiser</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableView" name="livTableHistorique">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="Personnel" name="pagePersonnel">
+       <layout class="QVBoxLayout" name="persLayoutContenu" stretch="0,0,0,3,2">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <property name="leftMargin">
+         <number>16</number>
+        </property>
+        <property name="topMargin">
+         <number>16</number>
+        </property>
+        <property name="rightMargin">
+         <number>16</number>
+        </property>
+        <property name="bottomMargin">
+         <number>16</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="persLayoutEntete">
+          <item>
+           <widget class="QLabel" name="persLabelTitre">
+            <property name="text">
+             <string>Gestion du personnel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="persSpacerEntete">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="persLabelInfo">
+            <property name="text">
+             <string>Responsable RH · 0 employé</string>
+            </property>
+            <property name="styleSheet">
+             <string>color:#5B6B7B; font-size:8pt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QFrame" name="persFrameAlerte">
+          <layout class="QHBoxLayout" name="persLayoutAlerte">
+           <property name="leftMargin">
+            <number>10</number>
+           </property>
+           <property name="topMargin">
+            <number>10</number>
+           </property>
+           <property name="rightMargin">
+            <number>10</number>
+           </property>
+           <property name="bottomMargin">
+            <number>10</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="persLabelAlerte">
+             <property name="text">
+              <string>&lt;b&gt;Alertes assiduité :&lt;/b&gt; aucune alerte pour le moment. Les employés dépassant le seuil d'absences configuré apparaîtront ici.</string>
+             </property>
+             <property name="textFormat">
+              <enum>Qt::RichText</enum>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="persLayoutRecherche" stretch="3,1,1,0">
+          <item>
+           <widget class="QLineEdit" name="persLineEditRecherche">
+            <property name="placeholderText">
+             <string>Rechercher un employé (nom, prénom)…</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="persComboDepartement">
+            <item>
+             <property name="text">
+              <string>Tous les départements</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Production</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Maintenance</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Logistique</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Qualité</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="persComboTri">
+            <item>
+             <property name="text">
+              <string>Trier par nom (A → Z)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Trier par nom (Z → A)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="persBtnExporter">
+            <property name="text">
+             <string>Attestation de présence (PDF)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="persLayoutMilieu" stretch="5,3">
+          <property name="spacing">
+           <number>12</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="persCardListe">
+            <layout class="QVBoxLayout" name="persLayoutCardListe" stretch="0,1">
+             <property name="spacing">
+              <number>8</number>
+             </property>
+             <property name="leftMargin">
+              <number>12</number>
+             </property>
+             <property name="topMargin">
+              <number>12</number>
+             </property>
+             <property name="rightMargin">
+              <number>12</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="persLabelTitreListe">
+               <property name="text">
+                <string>Liste des employés</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableView" name="persTableEmployes">
+               <property name="showGrid">
+                <bool>false</bool>
+               </property>
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::NoEditTriggers</set>
+               </property>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="horizontalHeaderStretchLastSection">
+                <bool>true</bool>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="persCardFiche">
+            <layout class="QVBoxLayout" name="persLayoutCardFiche">
+             <property name="spacing">
+              <number>8</number>
+             </property>
+             <property name="leftMargin">
+              <number>12</number>
+             </property>
+             <property name="topMargin">
+              <number>12</number>
+             </property>
+             <property name="rightMargin">
+              <number>12</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="persLabelTitreFiche">
+               <property name="text">
+                <string>Fiche employé — Modifier</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QGridLayout" name="persGridFiche">
+               <property name="horizontalSpacing">
+                <number>10</number>
+               </property>
+               <property name="verticalSpacing">
+                <number>4</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="persLblNom">
+                 <property name="text">
+                  <string>Nom</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>color:#5B6B7B; font-size:8pt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="persLblPrenom">
+                 <property name="text">
+                  <string>Prénom</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>color:#5B6B7B; font-size:8pt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLineEdit" name="persLineEditNom">
+                 <property name="text">
+                  <string />
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="persLineEditPrenom">
+                 <property name="text">
+                  <string />
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="persLblPoste">
+                 <property name="text">
+                  <string>Poste</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>color:#5B6B7B; font-size:8pt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="persLblDepartement">
+                 <property name="text">
+                  <string>Département</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>color:#5B6B7B; font-size:8pt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QComboBox" name="persComboPoste">
+                 <item>
+                  <property name="text">
+                   <string>Technicien</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Livreur</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="persComboDepartementFiche">
+                 <item>
+                  <property name="text">
+                   <string>Production</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Maintenance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Logistique</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Qualité</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="persLblDate">
+                 <property name="text">
+                  <string>Date d'embauche</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>color:#5B6B7B; font-size:8pt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLabel" name="persLblTel">
+                 <property name="text">
+                  <string>Téléphone</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>color:#5B6B7B; font-size:8pt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QDateEdit" name="persDateEditEmbauche">
+                 <property name="displayFormat">
+                  <string>dd/MM/yyyy</string>
+                 </property>
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                 <property name="date">
+                  <date>
+                   <year>2026</year>
+                   <month>10</month>
+                   <day>3</day>
+                  </date>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="persLineEditTelephone">
+                 <property name="text">
+                  <string />
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="persLblShift">
+                 <property name="text">
+                  <string>Shift assigné</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>color:#5B6B7B; font-size:8pt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QLabel" name="persLblStatut">
+                 <property name="text">
+                  <string>Statut</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>color:#5B6B7B; font-size:8pt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QComboBox" name="persComboShift">
+                 <item>
+                  <property name="text">
+                   <string>Matin</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Après-midi</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Nuit</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QComboBox" name="persComboStatut">
+                 <item>
+                  <property name="text">
+                   <string>Actif</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>En congé</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Suspendu</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="8" column="0" colspan="2">
+                <widget class="QLabel" name="persLblMail">
+                 <property name="text">
+                  <string>E-mail</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>color:#5B6B7B; font-size:8pt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0" colspan="2">
+                <widget class="QLineEdit" name="persLineEditMail">
+                 <property name="placeholderText">
+                  <string>prenom.nom@societe.com</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="persLayoutBoutons">
+               <item>
+                <widget class="QPushButton" name="persBtnAjouter">
+                 <property name="text">
+                  <string>Ajouter</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="persBtnEnregistrer">
+                 <property name="text">
+                  <string>Enregistrer</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="persBtnSupprimer">
+                 <property name="text">
+                  <string>Supprimer</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="persSpacerBoutons">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="persSpacerFiche">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="persLayoutBas" stretch="5,3">
+          <property name="spacing">
+           <number>12</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="persCardPlanning">
+            <layout class="QVBoxLayout" name="persLayoutCardPlanning" stretch="0,1">
+             <property name="spacing">
+              <number>8</number>
+             </property>
+             <property name="leftMargin">
+              <number>12</number>
+             </property>
+             <property name="topMargin">
+              <number>12</number>
+             </property>
+             <property name="rightMargin">
+              <number>12</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="persLabelTitrePlanning">
+               <property name="text">
+                <string>Planning par shift — semaine 40</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableWidget" name="persTablePlanning">
+               <property name="showGrid">
+                <bool>false</bool>
+               </property>
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::NoEditTriggers</set>
+               </property>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="horizontalHeaderStretchLastSection">
+                <bool>true</bool>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Employé</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Lun</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Mar</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Mer</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Jeu</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Ven</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="persCardGraphique">
+            <layout class="QVBoxLayout" name="persLayoutCardGraphique" stretch="0,1">
+             <property name="spacing">
+              <number>8</number>
+             </property>
+             <property name="leftMargin">
+              <number>12</number>
+             </property>
+             <property name="topMargin">
+              <number>12</number>
+             </property>
+             <property name="rightMargin">
+              <number>12</number>
+             </property>
+             <property name="bottomMargin">
+              <number>12</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="persLabelTitreGraphique">
+               <property name="text">
+                <string>Effectif par département</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="persLayoutGraphique">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1200</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar" />
  </widget>
- <resources/>
- <connections/>
+ <customwidgets>
+  <customwidget>
+   <class>Livraisons</class>
+   <extends>QWidget</extends>
+   <header>livraisons.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Personnel</class>
+   <extends>QWidget</extends>
+   <header>personnel.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources />
+ <connections />
 </ui>

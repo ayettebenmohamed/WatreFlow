@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="COMMANDE" directorySegmentName="seg_0" id="44ABB546-BAD0-0195-1D03-1EA1E51A1993">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:19 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<schemaObject>5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>DBE2FF3D-7381-6970-7988-2B4815200E32</segment>
+<tableSpace>EDA2348A-2A0F-9BBA-CF1E-B83D2D384A40</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DATE_COMMANDE" id="0B4DC5CE-FD21-A5C8-C697-B2D24A7D399F">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<defaultValue>CURRENT_TIMESTAMP</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="ADRESSE_LIVRAISON" id="27E3AB7C-E5A9-A220-9F03-07A626BFB01D">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUITS_COMMANDES" id="2F462C52-83E8-BE38-1B8E-00F2A0AC03C6">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_COMMANDE" id="3409DA3C-C1E4-99B9-0C3D-2B23CF27AD94">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLIENT" id="6D754066-7FAF-2106-2605-3F7C9CA5B833">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATUT" id="720D8C28-90A6-80CB-19D8-8C712D1A98B2">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<defaultValue>&apos;En attente&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="QUANTITE" id="99F5FE9B-B7C0-ED63-431E-704A0D0ABEFB">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DATE_LIVRAISON_PREVUE" id="B3E2B7BB-F933-5233-7204-38552037FC87">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MONTANT" id="E303643A-222B-7BD8-3065-F162876F4F1D">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TRANSPORTEUR_ASSIGNE" id="E56FF919-70B2-8BED-CBE8-F98DCB3F1E86">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_COMMANDE" id="685C5C33-7873-A937-22D8-FEB070708803">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:22 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<schemaObject>5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8</schemaObject>
+<segment>F20268D4-9A64-BA5B-58DE-131478D46E05</segment>
+<tableSpace>EDA2348A-2A0F-9BBA-CF1E-B83D2D384A40</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_COMMANDE" id="78B4E646-6ACA-31B2-F245-E09BCBCCB86E">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:24 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<segment>F20268D4-9A64-BA5B-58DE-131478D46E05</segment>
+<tableSpace>EDA2348A-2A0F-9BBA-CF1E-B83D2D384A40</tableSpace>
+<existingIndex>685C5C33-7873-A937-22D8-FEB070708803</existingIndex>
+<indexSegment>F20268D4-9A64-BA5B-58DE-131478D46E05</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

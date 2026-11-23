@@ -55,6 +55,19 @@ bool Commande::modifier()
 {
     m_erreur.clear();
     QSqlQuery q;
+
+    // Une commande rattachée à une livraison active a son statut piloté par le module Livraisons
+    q.prepare("SELECT L.ID_LIVRAISON, C.STATUT FROM COMMANDE C "
+              "JOIN REGROUPE R ON R.ID_COMMANDE = C.ID_COMMANDE "
+              "JOIN LIVRAISON L ON L.ID_LIVRAISON = R.ID_LIVRAISON "
+              "WHERE C.ID_COMMANDE = :id AND L.STATUT <> 'Échouée'");
+    q.bindValue(":id", id);
+    if (q.exec() && q.next() && q.value(1).toString() != statut) {
+        m_erreur = QString("Le statut de cette commande est géré par la livraison n° %1 : "
+                           "modifiez-le depuis le module Livraisons.").arg(q.value(0).toInt());
+        return false;
+    }
+
     q.prepare("UPDATE COMMANDE SET CLIENT=:client, DATE_COMMANDE=:dcmd, PRODUITS_COMMANDES=:produits, "
               "QUANTITE=:qte, ADRESSE_LIVRAISON=:adresse, DATE_LIVRAISON_PREVUE=:dprev, STATUT=:statut, "
               "TRANSPORTEUR_ASSIGNE=:transp, MONTANT=:montant WHERE ID_COMMANDE=:id");

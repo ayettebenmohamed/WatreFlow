@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BA93BC9D-7332-041B-0253-A1D2AA61975A" schemaObject="5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8" name="MANT">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>MANT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:20 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_MANT" id="DBE49F7C-C6F9-474D-5580-0EB12B32096A">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>MANT</sourceObjSchema>
+<sourceObjName>ID_MANT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_EQUIPEMENT" id="F9F61B5E-E29F-D2F4-5154-B7A0DDF58961">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>MANT</sourceObjSchema>
+<sourceObjName>ID_EQUIPEMENT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="96328093-4511-31A0-DD05-E69BB612581B" referredColumn="CA983422-AF0A-93F9-0602-C7011F1EFB3C"/>
+</associations>
+</Column>
+<Column name="ID_EMPLOYE" id="87D12463-562D-6456-4BF1-D4F6227EDA34">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>MANT</sourceObjSchema>
+<sourceObjName>ID_EMPLOYE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="34AC68C4-2BD1-BE75-ECC3-A9FA40C24CB4" referredColumn="9901BC9A-F816-0676-5F2B-6916AF34258F"/>
+</associations>
+</Column>
+<Column name="DATE_MAINTENANCE" id="9576E7BE-9C8A-FFD0-DF01-AB6B2781DCA8">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>MANT</sourceObjSchema>
+<sourceObjName>DATE_MAINTENANCE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TYPE_MAINTENANCE" id="B9FC439F-4783-B2ED-534E-98773490801D">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>MANT</sourceObjSchema>
+<sourceObjName>TYPE_MAINTENANCE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DUREE" id="FFBC8809-983C-DEB3-2A29-E815AA4373AA">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>MANT</sourceObjSchema>
+<sourceObjName>DUREE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4FAF28E3-DF70-7E02-D812-94BE39E56ECA" name="PK_MANT">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>PK_MANT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:24 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DBE49F7C-C6F9-474D-5580-0EB12B32096A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EF3BEF24-666E-7BD0-9AEB-83592E88EEEF" schemaObject="5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8" name="PK_MANT">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>PK_MANT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:23 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DBE49F7C-C6F9-474D-5580-0EB12B32096A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="53B4B4C4-5044-669A-472E-74F7FC7E0A3A" name="FK_MANT_EMPLOYE">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:25 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="87D12463-562D-6456-4BF1-D4F6227EDA34"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C139C661-779E-E696-83B7-3EEA314EB664" name="FK_MANT_EQUIPEMENT">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:25 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9F61B5E-E29F-D2F4-5154-B7A0DDF58961"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

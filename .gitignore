@@ -1,8 +1,27 @@
+# ---- Compilation Qt / qmake (régénérés à chaque build) ----
 build/
-.qtcreator/
-*.pro.user
-*.zip
+debug/
+release/
+*.o
+*.obj
 *.exe
+Makefile*
+.qmake.stash
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
 
-*.autosave
+# ---- Fichiers personnels de Qt Creator ----
+*.pro.user
+*.pro.user.*
 *.user.*
+*.autosave
+.qtcreator/
+*.zip
+
+# ---- Configuration locale (mots de passe de la base) ----
+waterflow.ini
+
+# ---- Export de données réelles (ne pas publier) ----
+sql/sauvegarde_wf_avant_recreation.txt

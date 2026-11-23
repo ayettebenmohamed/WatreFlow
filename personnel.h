@@ -7,7 +7,7 @@
 
 class QSqlQueryModel;
 class FiltreEmployes;
-namespace Ui { class Personnel; }
+namespace Ui { class MainWindow; }
 
 // Vue : affiche les données et gère l'interface. Aucune requête SQL ici :
 // tout passe par la classe Employe (Modèle).
@@ -15,8 +15,11 @@ class Personnel : public QWidget
 {
     Q_OBJECT
 public:
+    // Page « Personnel » du mainwindow.ui unique (widget promu) : les widgets de la page sont
+    // créés par Ui::MainWindow ; initialiser() les relie une fois setupUi() terminé.
     explicit Personnel(QWidget *parent = nullptr);
     ~Personnel();
+    void initialiser(Ui::MainWindow *ui);
 
 private slots:
     void ajouterEmploye();
@@ -25,8 +28,6 @@ private slots:
     void selectionEmploye(const QModelIndex &index);
     void rechercher();
     void exporterAttestation();
-    void menuClique(int row);
-    void deconnecter();
 
 private:
     void actualiser();                 // recharge le modèle (Etmp.afficher()) et rafraîchit la vue
@@ -48,5 +49,5 @@ private:
     QSqlQueryModel *m_model = nullptr; // modèle SQL (source)
     FiltreEmployes *m_filtre = nullptr;// recherche / filtre département / tri
     int m_editingId = -1;              // id de l'employé en cours de modification (-1 = nouveau)
-    Ui::Personnel *ui;
+    Ui::MainWindow *ui = nullptr;      // non possédé (appartient à MainWindow)
 };

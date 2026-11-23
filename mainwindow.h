@@ -23,19 +23,23 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    static constexpr int CODE_DECONNEXION = 1000;   // code de sortie de la boucle d'événements -> retour au login
+
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
-    void on_pushButton_ajouter_clicked();
-    void on_pushButton_modifier_clicked();
-    void on_pushButton_supprimer_clicked();
-    void on_pushButton_vider_clicked();
-    void on_pushButton_exportCSV_clicked();
-    void on_pushButton_majStatutAuto_clicked();
-    void on_pushButton_trierDate_clicked();
-    void on_tableView_commandes_clicked(const QModelIndex &index);
+    void ajouterCommande();
+    void modifierCommande();
+    void supprimerCommande();
+    void viderFormulaireCommande();
+    void exporterCsv();
+    void verifierRetards();
+    void trierParDate();
+    void selectionCommande(const QModelIndex &index);
     void changerPage(int row);
+    void deconnecter();
+    void basculerTheme();
 
 private:
     Ui::MainWindow *ui;
@@ -44,8 +48,9 @@ private:
 
     Livraisons *pageLivraisons = nullptr;
     Personnel *pagePersonnel = nullptr;
+    QPushButton *btnTheme = nullptr;
 
-    // Widgets créés dans le code
+    // Raccourcis vers les widgets de la page Commandes du mainwindow.ui (préfixe « cmd »)
     QTableView *tableViewCommandes;
     QLineEdit *lineEdit_id;
     QLineEdit *lineEdit_client;
@@ -74,7 +79,11 @@ private:
     QLineEdit *lineEdit_recherche;
     QComboBox *comboBox_filtreStatut;
 
-    void construirePageCommandes();
+    // Pages du mainwindow.ui : 0 Tableau de bord, 1 Commandes, 2 Livraisons, 3 Personnel
+    enum Page { PageTableauBord, PageCommandes, PageLivraisons, PagePersonnel };
+    void configurerPageCommandes();
+    void configurerTableauDeBord();
+    void rafraichirTableauDeBord();
     void chargerDonnees();
     void calculerStatistiques();
     void detecterCommandesInhabituelles();

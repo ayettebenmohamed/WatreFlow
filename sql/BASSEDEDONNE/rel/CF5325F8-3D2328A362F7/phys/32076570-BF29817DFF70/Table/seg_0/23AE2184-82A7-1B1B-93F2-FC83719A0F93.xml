@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="EMPLOYE" directorySegmentName="seg_0" id="23AE2184-82A7-1B1B-93F2-FC83719A0F93">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:19 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<schemaObject>5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>DBE2FF3D-7381-6970-7988-2B4815200E32</segment>
+<tableSpace>EDA2348A-2A0F-9BBA-CF1E-B83D2D384A40</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DEPARTEMENT" id="04F71E4A-B5F2-B349-329D-C3704BD99566">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TELEPHONE" id="198A191B-EAA1-34FF-ACF1-0B49AA1B389E">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DATE_EMBAUCHE" id="330A7827-2295-B474-B2A0-6BD039B1ABE5">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="POSTE" id="4DF52790-CDBA-CB54-ADA1-D166FF6215EC">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SHIFT" id="589D8194-EF8E-A8C3-AAC4-B5C56B165691">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRENOM" id="6DC449E4-8623-FEA3-6379-B2FEB02820DA">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATUT" id="75A09175-ACB0-07D3-BAA9-DD599606C1F5">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<defaultValue>&apos;Actif&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="ID_EMPLOYE" id="9901BC9A-F816-0676-5F2B-6916AF34258F">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOM" id="B55C91CD-46E1-60F3-0535-421572A893FF">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAIL" id="DF6A1F78-C2CD-BCF1-A24E-FC229F96E6BB">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_EMPLOYE" id="78B50CCF-54BA-DF2B-572B-158F661C50AA">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:22 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<schemaObject>5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8</schemaObject>
+<segment>F20268D4-9A64-BA5B-58DE-131478D46E05</segment>
+<tableSpace>EDA2348A-2A0F-9BBA-CF1E-B83D2D384A40</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_EMPLOYE" id="A56B85D6-8507-3500-884A-42C53076BD38">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:24 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<segment>F20268D4-9A64-BA5B-58DE-131478D46E05</segment>
+<tableSpace>EDA2348A-2A0F-9BBA-CF1E-B83D2D384A40</tableSpace>
+<existingIndex>78B50CCF-54BA-DF2B-572B-158F661C50AA</existingIndex>
+<indexSegment>F20268D4-9A64-BA5B-58DE-131478D46E05</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

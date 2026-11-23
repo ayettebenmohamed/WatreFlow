@@ -6,21 +6,21 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
-// Classe purement C++ (Modèle) : toutes les requêtes SQL de l'entité EMPLOYE sont ici.
+
 class Employe
 {
     int id = 0;
     QString nom, prenom, poste, departement, telephone, mail, shift, statut;
     QDate dateEmbauche;
-    QString m_erreur;                 // dernier message d'erreur SQL
+    QString m_erreur;
 
 public:
-    // Constructeurs
+
     Employe() {}
     Employe(int id, QString nom, QString prenom, QString poste, QString departement,
             QDate dateEmbauche, QString telephone, QString mail, QString shift, QString statut);
 
-    // Getters
+
     int getID() const { return id; }
     QString getNom() const { return nom; }
     QString getPrenom() const { return prenom; }
@@ -31,9 +31,9 @@ public:
     QString getMail() const { return mail; }
     QString getShift() const { return shift; }
     QString getStatut() const { return statut; }
-    QString getMatricule() const;     // ex. EMP-001
+    QString getMatricule() const;
 
-    // Setters
+
     void setID(int i) { id = i; }
     void setNom(QString n) { nom = n; }
     void setPrenom(QString p) { prenom = p; }

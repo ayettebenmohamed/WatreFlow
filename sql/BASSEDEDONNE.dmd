@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="BASSEDEDONNE" id="2946A8BF-E665-5E0A-8E3E-BDC6F952C39C" version="3.5">
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:24:40 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>2946A8BF-E665-5E0A-8E3E-BDC6F952C39C</designId>
+</OSDM_Design>

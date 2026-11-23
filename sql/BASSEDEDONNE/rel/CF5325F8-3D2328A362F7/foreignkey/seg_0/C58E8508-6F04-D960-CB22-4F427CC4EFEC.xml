@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C58E8508-6F04-D960-CB22-4F427CC4EFEC" containerWithKeyObject="87EF4121-A80F-7F8B-AFF3-87F143963ADE" localFKIndex="5A72FF87-0062-3515-C1A0-4A1B8A7D9D46" name="FK_CONTIENT_COMMANDE">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>FK_CONTIENT_COMMANDE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:25 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<referredTableLongName>WF.COMMANDE</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>44ABB546-BAD0-0195-1D03-1EA1E51A1993</referredTableID>
+<keyObject>78B4E646-6ACA-31B2-F245-E09BCBCCB86E</keyObject>
+<referredKeyID>78B4E646-6ACA-31B2-F245-E09BCBCCB86E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_COMMANDE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

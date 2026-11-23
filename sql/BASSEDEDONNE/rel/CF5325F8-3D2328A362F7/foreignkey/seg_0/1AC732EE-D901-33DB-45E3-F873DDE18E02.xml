@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="1AC732EE-D901-33DB-45E3-F873DDE18E02" containerWithKeyObject="688194E3-3803-7A31-F77A-E3E2028B89FC" localFKIndex="DA23EEE3-91DB-6EB3-7FA3-9E87958CCB2D" name="FK_REGROUPE_LIVRAISON">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>FK_REGROUPE_LIVRAISON</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:25 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<referredTableLongName>WF.LIVRAISON</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>278015CD-F65B-C54F-87B1-361DE45672D9</referredTableID>
+<keyObject>74424CB0-113C-BF96-561B-BBDFC2B9D33D</keyObject>
+<referredKeyID>74424CB0-113C-BF96-561B-BBDFC2B9D33D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_LIVRAISON</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

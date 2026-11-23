@@ -56,7 +56,7 @@ void BarChart::paintEvent(QPaintEvent *)
         const QRect barre(x, zone.bottom() - h, largeurBarre, h);
         p.fillRect(barre, QColor(i % 2 == 0 ? "#0A4D8C" : "#00B4D8"));
 
-        p.setPen(QColor("#1b2a38"));
+        p.setPen(palette().color(QPalette::WindowText));   // suit le thème jour / sombre
         QFont gras = police;
         gras.setBold(true);
         p.setFont(gras);

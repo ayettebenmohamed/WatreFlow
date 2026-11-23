@@ -8,7 +8,7 @@
 
 BEGIN
   FOR t IN (SELECT table_name FROM user_tables
-             WHERE table_name IN ('REGROUPE','CONTIENT','MANT','LIVRAISON','COMMANDE',
+             WHERE table_name IN ('HISTORIQUE_LIVRAISON','REGROUPE','CONTIENT','MANT','LIVRAISON','COMMANDE',
                                   'PRODUIT','EQUIPEMENT','EMPLOYE')) LOOP
     EXECUTE IMMEDIATE 'DROP TABLE ' || t.table_name || ' CASCADE CONSTRAINTS PURGE';
   END LOOP;

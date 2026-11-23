@@ -144,6 +144,19 @@ bool Employe::supprimer(int id)
     m_erreur.clear();
 
     QSqlQuery query;
+    // Un employé référencé par des livraisons ou des maintenances ne peut pas être supprimé
+    // (clés étrangères) : message clair plutôt que l'erreur Oracle ORA-02292.
+    query.prepare("SELECT (SELECT COUNT(*) FROM LIVRAISON WHERE ID_EMPLOYE = :id1), "
+                  "(SELECT COUNT(*) FROM MANT WHERE ID_EMPLOYE = :id2) FROM DUAL");
+    query.bindValue(":id1", id);
+    query.bindValue(":id2", id);
+    if (query.exec() && query.next() && (query.value(0).toInt() > 0 || query.value(1).toInt() > 0)) {
+        m_erreur = QString("Cet employé est lié à %1 livraison(s) et %2 maintenance(s).\n"
+                           "Passez-le plutôt au statut « Suspendu » pour conserver l'historique.")
+                       .arg(query.value(0).toInt()).arg(query.value(1).toInt());
+        return false;
+    }
+
     query.prepare("DELETE FROM EMPLOYE WHERE id_employe = :id");
     query.bindValue(":id", id);
 

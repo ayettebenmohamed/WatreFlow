@@ -1,0 +1,210 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="44ABB546-BAD0-0195-1D03-1EA1E51A1993" schemaObject="5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8" name="COMMANDE">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>COMMANDE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:19 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_COMMANDE" id="3409DA3C-C1E4-99B9-0C3D-2B23CF27AD94">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>ID_COMMANDE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLIENT" id="6D754066-7FAF-2106-2605-3F7C9CA5B833">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>CLIENT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 BYTE</dataTypeSize>
+<ownDataTypeParameters>150 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATE_COMMANDE" id="0B4DC5CE-FD21-A5C8-C697-B2D24A7D399F">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>DATE_COMMANDE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>CURRENT_TIMESTAMP</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUITS_COMMANDES" id="2F462C52-83E8-BE38-1B8E-00F2A0AC03C6">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>PRODUITS_COMMANDES</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 BYTE</dataTypeSize>
+<ownDataTypeParameters>500 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QUANTITE" id="99F5FE9B-B7C0-ED63-431E-704A0D0ABEFB">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>QUANTITE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<constraintName>CK_COMMANDE_QTE</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="QUANTITE &gt; 0"/>
+<implementationDef dbType="Oracle Database 11g" definition="QUANTITE &gt; 0"/>
+</checkConstraint>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADRESSE_LIVRAISON" id="27E3AB7C-E5A9-A220-9F03-07A626BFB01D">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>ADRESSE_LIVRAISON</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATE_LIVRAISON_PREVUE" id="B3E2B7BB-F933-5233-7204-38552037FC87">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>DATE_LIVRAISON_PREVUE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUT" id="720D8C28-90A6-80CB-19D8-8C712D1A98B2">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>STATUT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<constraintName>CK_COMMANDE_STATUT</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;Annulée&apos;" description=""/>
+<valueDef value="&apos;En attente&apos;" description=""/>
+<valueDef value="&apos;En préparation&apos;" description=""/>
+<valueDef value="&apos;Expédiée&apos;" description=""/>
+<valueDef value="&apos;Livrée&apos;" description=""/>
+</listOfValues>
+<defaultValue>&apos;En attente&apos;</defaultValue>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRANSPORTEUR_ASSIGNE" id="E56FF919-70B2-8BED-CBE8-F98DCB3F1E86">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>TRANSPORTEUR_ASSIGNE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MONTANT" id="E303643A-222B-7BD8-3065-F162876F4F1D">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>COMMANDE</sourceObjSchema>
+<sourceObjName>MONTANT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<constraintName>CK_COMMANDE_MONTANT</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="MONTANT &gt;= 0"/>
+<implementationDef dbType="Oracle Database 11g" definition="MONTANT &gt;= 0"/>
+</checkConstraint>
+<ownDataTypeParameters>,12,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="78B4E646-6ACA-31B2-F245-E09BCBCCB86E" name="PK_COMMANDE">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>PK_COMMANDE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:24 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3409DA3C-C1E4-99B9-0C3D-2B23CF27AD94"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="685C5C33-7873-A937-22D8-FEB070708803" schemaObject="5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8" name="PK_COMMANDE">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>PK_COMMANDE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:22 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3409DA3C-C1E4-99B9-0C3D-2B23CF27AD94"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

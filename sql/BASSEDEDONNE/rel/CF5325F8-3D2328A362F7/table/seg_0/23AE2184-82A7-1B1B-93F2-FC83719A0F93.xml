@@ -1,0 +1,202 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="23AE2184-82A7-1B1B-93F2-FC83719A0F93" schemaObject="5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8" name="EMPLOYE">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>EMPLOYE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:19 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_EMPLOYE" id="9901BC9A-F816-0676-5F2B-6916AF34258F">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>ID_EMPLOYE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOM" id="B55C91CD-46E1-60F3-0535-421572A893FF">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>NOM</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRENOM" id="6DC449E4-8623-FEA3-6379-B2FEB02820DA">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>PRENOM</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POSTE" id="4DF52790-CDBA-CB54-ADA1-D166FF6215EC">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>POSTE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPARTEMENT" id="04F71E4A-B5F2-B349-329D-C3704BD99566">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>DEPARTEMENT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATE_EMBAUCHE" id="330A7827-2295-B474-B2A0-6BD039B1ABE5">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>DATE_EMBAUCHE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TELEPHONE" id="198A191B-EAA1-34FF-ACF1-0B49AA1B389E">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>TELEPHONE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAIL" id="DF6A1F78-C2CD-BCF1-A24E-FC229F96E6BB">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>MAIL</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SHIFT" id="589D8194-EF8E-A8C3-AAC4-B5C56B165691">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>SHIFT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<constraintName>CK_EMPLOYE_SHIFT</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;Après-midi&apos;" description=""/>
+<valueDef value="&apos;Matin&apos;" description=""/>
+<valueDef value="&apos;Nuit&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUT" id="75A09175-ACB0-07D3-BAA9-DD599606C1F5">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>EMPLOYE</sourceObjSchema>
+<sourceObjName>STATUT</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:21 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<constraintName>CK_EMPLOYE_STATUT</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;Actif&apos;" description=""/>
+<valueDef value="&apos;En congé&apos;" description=""/>
+<valueDef value="&apos;Suspendu&apos;" description=""/>
+</listOfValues>
+<defaultValue>&apos;Actif&apos;</defaultValue>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A56B85D6-8507-3500-884A-42C53076BD38" name="PK_EMPLOYE">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>PK_EMPLOYE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:24 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9901BC9A-F816-0676-5F2B-6916AF34258F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="78B50CCF-54BA-DF2B-572B-158F661C50AA" schemaObject="5017E5D8-8BDD-EE4C-8EF9-349B019EEDC8" name="PK_EMPLOYE">
+<sourceConnName>wf</sourceConnName>
+<sourceObjSchema>WF</sourceObjSchema>
+<sourceObjName>PK_EMPLOYE</sourceObjName>
+<createdBy>msi</createdBy>
+<createdTime>2026-11-10 08:25:22 UTC</createdTime>
+<ownerDesignName>BASSEDEDONNE</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9901BC9A-F816-0676-5F2B-6916AF34258F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
